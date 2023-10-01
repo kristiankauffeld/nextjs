@@ -1,0 +1,13 @@
+services:
+  next-ts-app:
+    image: next-ts-app
+    build:
+      context: ./
+      dockerfile: dev.Dockerfile
+    container_name: next-ts-app
+    volumes:
+      - ./app:/app/app
+      - ./public:/app/public
+    ports:
+      - '3000:3000'
+    restart: always
