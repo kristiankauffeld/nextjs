@@ -8,12 +8,19 @@ services:
     volumes:
       - ./app:/app/app
       - ./public:/app/public
-    environment:
-      DATABASE_URL: DATABASE_URL="mysql://root:password@nextapp:3306
+
+    # Set environment variables directly in the docker-compose file
+    #environment:
+    #DATABASE_URL: 'mysql://root:password@mysql-db:3306'
+
+    # Set envrionment variables based on the .env file
+    env_file:
+      - .env
     ports:
       - '3000:3000'
     depends_on:
-      - mysql-db
+      mysql-db:
+        condition: service_started
     restart: always
 
   mysql-db:

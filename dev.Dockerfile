@@ -23,7 +23,7 @@ COPY . .
 # Start Next.js in development mode based on the preferred package manager
 CMD \
   if [ -f yarn.lock ]; then yarn dev; \
-  elif [ -f package-lock.json ]; then npm run dev; \
+  elif [ -f package-lock.json ]; then npx wait-port mysql-db:3306 && npm run dev; \
   elif [ -f pnpm-lock.yaml ]; then pnpm dev; \
   else yarn dev; \
   fi

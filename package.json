@@ -13,7 +13,8 @@
     "next": "latest",
     "prisma": "^5.3.1",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "wait-port": "^1.1.0"
   },
   "devDependencies": {
     "@types/node": "latest",
